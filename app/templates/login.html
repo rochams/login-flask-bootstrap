@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        #forms {
+            text-align: center;
+            width: 20%;
+            margin: auto;
+        }
+        div {
+            text-align: center;
+            padding-top: 20px;
+        }
+        #image{
+            box-shadow: 4px 3px 5px black;
+            border-radius: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+    <div>
+        <img id="image" src="{{url_for('static', filename='images/img_page.png') }}" alt="Foto de rede social" width="300" height="230"><br><br>
+    </div>
+    <h3 style="text-align: center;">Login</h3>
+    <div class="form-group">
+        <form id="forms" action="" method="POST">
+            {{ form.csrf_token }} <!-- Campo de segurança que o WTF cria e que precisa ser adicionado junto com o formulário para validação-->
+            <div class="form-group">
+              <label>Usuário</label>
+              {{ form.username(class="form-control", placeholder="Digite o usuário")}}
+              <!--{% if form.errors.username %}         Podemos criar um alerta para retornar as condições de login caso não sejam atendidas
+              <div class="alert alert-warning" role="alert">
+                {{ form.errors.username }}
+                {% endif %}
+              </div> -->
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              {{ form.password(class="form-control")}}
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Lembre-me
+              </label>
+            </div><br><br>
+            <button id="bttn" type="submit" class="btn btn-secondary">Entrar</button>
+        </form>
+    </div><br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <p style="text-align: center;">&copy;2021-2022</p>   
+</body>
+</html>

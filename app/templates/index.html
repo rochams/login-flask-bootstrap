@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+</head>
+<body>
+    <header>
+        <h3>Bem-vindo(a)!</h3>
+            {% if user %}               <!-- Validação de acordo com o que foi digitado no método "user" no módulo default usando sintaxe JINJA-->
+            <h3>Olá, {{ user }}.</h3>   <!-- Utilizando funções de Python no escopo do documento HTML-->
+            {% else %}
+            <h3>Olá, usuário!</h3>
+            {% endif %}                 <!-- SEMPRE FECHAR a condicional utilizando o ENDIF-->
+    </header>
+    <main>
+
+    </main>
+</body>
+</html>
